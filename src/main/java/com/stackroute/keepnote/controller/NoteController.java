@@ -36,7 +36,7 @@ public class NoteController {
 	 * Retrieve the NoteRepository object from the context.
 	 */
 	ApplicationContext atx=new ClassPathXmlApplicationContext("beans.xml");
-	      Note note=(Note) atx.getBean("Note");
+	      
 	      NoteRepository noteRepository=(NoteRepository) atx.getBean("NoteRepository");
 	
 	/*Define a handler method to read the existing notes by calling the getAllNotes() method 
@@ -61,14 +61,14 @@ public class NoteController {
 	*/
 	      @RequestMapping(value="/saveNote",method=RequestMethod.POST)
 	    public String addNote(@RequestParam("noteId") int noteId, @RequestParam("noteTitle") String noteTitle, @RequestParam("noteContent") String noteContent, @RequestParam("noteStatus") String noteStatus){
-	    	  
+	    	  Note note=(Note) atx.getBean("Note");
 	    	    note.setNoteId(noteId);
 	    		note.setNoteTitle(noteTitle);
 	    		note.setNoteContent(noteContent);
 	    		note.setNoteStatus(noteStatus);
 	    		note.setCreatedAt(LocalDateTime.now());
 	    		noteRepository.addNote(note);
-	    		return "index";	
+	    		return "redirect:/";	
 	    	  
 	      }
 	    
@@ -82,7 +82,7 @@ public class NoteController {
 	     public String deleteNote(@RequestParam("noteId") int noteId) {
 	    	if(noteId==0)
 	    	{
-	    		return "index";
+	    		return "redirect:/";
 	    	}
 	    	else
 	    	{

@@ -31,6 +31,7 @@
 				<td>${saveNote.noteTitle}</td>
 				<td>${saveNote.noteContent}</td>
 				<td>${saveNote.noteStatus}</td>
+				<td>${saveNote.createdAt}</td>	
 			</tr>
 		</c:forEach>
    </table>
