@@ -67,7 +67,7 @@ public class Note {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString();
+		return " "+noteId+" "+noteTitle+" "+" "+noteContent+" "+" "+noteStatus+" "+createdAt;
 	}/* Override the toString() method */
 
 	

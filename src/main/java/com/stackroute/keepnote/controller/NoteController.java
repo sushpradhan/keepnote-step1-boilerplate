@@ -80,15 +80,10 @@ public class NoteController {
 	*/
 	    @RequestMapping(value="/deleteNote",method=RequestMethod.GET)
 	     public String deleteNote(@RequestParam("noteId") int noteId) {
-	    	if(noteId==0)
-	    	{
-	    		return "redirect:/";
-	    	}
-	    	else
-	    	{
+	    	if(!(noteId==0)){
 	    		noteRepository.deleteNote(noteId);
+	    		}
 	    		return "redirect:/";
-	    	}
 	    }
 	
 }
