@@ -68,7 +68,7 @@ public class NoteController {
 	    		note.setNoteStatus(noteStatus);
 	    		note.setCreatedAt(LocalDateTime.now());
 	    		noteRepository.addNote(note);
-	    		return "redirect:/";	
+	    		return "index";	
 	    	  
 	      }
 	    
